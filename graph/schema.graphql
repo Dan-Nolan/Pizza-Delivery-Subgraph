@@ -1,0 +1,21 @@
+enum OrderStatus {
+  Ordered
+  Started
+  Completed
+}
+
+type Delivery @entity {
+  id: ID!
+  numberOfPizzas: BigInt!
+  status: OrderStatus
+  deliverer: String
+  eta: BigInt
+  arrival: BigInt
+  tip: BigInt
+}
+
+type Deliverer @entity {
+  id: ID!
+  tips: BigInt!
+  totalPizzas: BigInt!
+}

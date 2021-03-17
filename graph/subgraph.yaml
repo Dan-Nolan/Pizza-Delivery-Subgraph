@@ -1,0 +1,29 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Pizza
+    network: mainnet
+    source:
+      address: "0xc42CA295ab4F83CA1097dC9C7F63988c340Ba569"
+      abi: Pizza
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Order
+        - DeliveryStarted
+        - DeliveryComplete
+      abis:
+        - name: Pizza
+          file: ./abis/Pizza.json
+      eventHandlers:
+        - event: Order(uint256,uint256)
+          handler: handleOrder
+        - event: DeliveryStarted(uint256,uint256,address)
+          handler: handleDeliveryStart
+        - event: DeliveryComplete(uint256,uint256,uint256)
+          handler: handleDeliveryComplete
+      file: ./src/mapping.ts
