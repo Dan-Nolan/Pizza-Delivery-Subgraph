@@ -11,11 +11,12 @@ type Delivery @entity {
   deliverer: String
   eta: BigInt
   arrival: BigInt
-  tip: BigInt
+  tip: BigInt!
 }
 
 type Deliverer @entity {
   id: ID!
+  deliveries: BigInt!
   tips: BigInt!
   totalPizzas: BigInt!
 }

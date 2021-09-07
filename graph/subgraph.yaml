@@ -6,7 +6,7 @@ dataSources:
     name: Pizza
     network: mainnet
     source:
-      address: "0xc42CA295ab4F83CA1097dC9C7F63988c340Ba569"
+      address: "0x7062e3399692d3f6A17e4529191EF6C032014451"
       abi: Pizza
     mapping:
       kind: ethereum/events
